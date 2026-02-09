@@ -33,19 +33,18 @@ const FINGERPRINTS_FILE = path.join(__dirname, 'device_fingerprints.json');
 // ============ BANNER ============
 function showBanner() {
     console.log(chalk.blue(`
-███╗   ███╗   ███╗   ███╗
-████╗ ████║   ████╗ ████║
-██╔████╔██║   ██╔████╔██║
-██║╚██╔╝██║   ██║╚██╔╝██║
-██║ ╚═╝ ██║   ██║ ╚═╝ ██║
-╚═╝     ╚═╝   ╚═╝     ╚═╝
+â–ˆâ–ˆâ–ˆâ•—   â–ˆâ–ˆâ–ˆâ•—   â–ˆâ–ˆâ–ˆâ•—   â–ˆâ–ˆâ–ˆâ•—
+â–ˆâ–ˆâ–ˆâ–ˆâ•— â–ˆâ–ˆâ–ˆâ–ˆâ•‘   â–ˆâ–ˆâ–ˆâ–ˆâ•— â–ˆâ–ˆâ–ˆâ–ˆâ•‘
+â–ˆâ–ˆâ•”â–ˆâ–ˆâ–ˆâ–ˆâ•”â–ˆâ–ˆâ•‘   â–ˆâ–ˆâ•”â–ˆâ–ˆâ–ˆâ–ˆâ•”â–ˆâ–ˆâ•‘
+â–ˆâ–ˆâ•‘â•šâ–ˆâ–ˆâ•”â•â–ˆâ–ˆâ•‘   â–ˆâ–ˆâ•‘â•šâ–ˆâ–ˆâ•”â•â–ˆâ–ˆâ•‘
+â–ˆâ–ˆâ•‘ â•šâ•â• â–ˆâ–ˆâ•‘   â–ˆâ–ˆâ•‘ â•šâ•â• â–ˆâ–ˆâ•‘
+â•šâ•â•     â•šâ•â•   â•šâ•â•     â•šâ•â•
     `));
 
     console.log(chalk.bold.cyan('      ===== MASTER TESTNET ====='));
     console.log(chalk.bold.cyan('        === ZUGCHAIN ==='));
 }
 
-}
 
 // ============ DESKTOP USER AGENTS ============
 const DESKTOP_USER_AGENTS = [
@@ -768,7 +767,7 @@ class AccountScheduler {
     async initialize() {
         try {
             const wallet = new ethers.Wallet(this.account.privateKey);
-            const account = await evmAccounts.valid(pk);
+            const account = await evmAccounts.valid(this.account.privateKey);
             const fingerprint = this.fingerprintManager.generate(wallet.address);
             this.client = new ZugChainClient(this.account, fingerprint, this.account.proxy);
 
@@ -908,7 +907,7 @@ class AccountScheduler {
             }
 
             // CLEANER LOG AS REQUESTED
-            this.log(`Missions Loaded: ${missions.length} | Daily Status: ${this.stats.dailyCompleted ? '✅' : '❌'}`, chalk.white);
+            this.log(`Missions Loaded: ${missions.length} | Daily Status: ${this.stats.dailyCompleted ? 'âœ…' : 'âŒ'}`, chalk.white);
 
             for (const mission of missions) {
                 if (this.client.shouldTakeCooldown()) {
@@ -986,7 +985,7 @@ class AccountScheduler {
             address: this.client ? shortAddress(this.client.address) : 'N/A',
             points: this.stats.totalPoints,
             diff: this.stats.pointsDiff >= 0 ? `+${this.stats.pointsDiff}` : `${this.stats.pointsDiff}`,
-            daily: this.stats.dailyCompleted ? '✅' : '❌',
+            daily: this.stats.dailyCompleted ? 'âœ…' : 'âŒ',
             social: `${this.stats.socialCompleted}/10`,
             onchain: `${this.stats.onchainCompleted}`,
             nextRun: this.stats.nextRun || 'Ready',
@@ -1032,14 +1031,14 @@ class ZugChainBot {
         }
 
         console.log();
-        console.log(chalk.green(`[✓] Initialized ${this.schedulers.length}/${accounts.length} accounts`));
+        console.log(chalk.green(`[âœ“] Initialized ${this.schedulers.length}/${accounts.length} accounts`));
         console.log();
     }
 
     printSummaryTable() {
         // --- GRAND SUMMARY ---
         console.log('\n' + chalk.bold.cyan('================================================================================'));
-        console.log(chalk.bold.cyan(`                          🤖 SIPAL ZUGCHAIN V1.0 🤖`));
+        console.log(chalk.bold.cyan(`                          ðŸ¤– ZUGCHAIN V1.0 ðŸ¤–`));
         console.log(chalk.bold.cyan('================================================================================'));
 
         const table = new Table({
