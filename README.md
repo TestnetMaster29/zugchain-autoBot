@@ -78,7 +78,7 @@ You need to create a file to store your account data:
 ```
 
 > **Notes:**
-> - `privateKey`: Your Metamask wallet private key (**keep it secret!**).
+> - `privateKey`: Your evm wallet private key (**keep it secret!**).
 > - `proxy`: Optional. Leave empty if you are not using a proxy.
 > - `twoCaptchaApiKey`: Required to bypass captcha during faucet claims.
 
