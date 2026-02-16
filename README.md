@@ -23,7 +23,6 @@ An advanced automation bot for the ZugChain Airdrop ecosystem, featuring auto-lo
 | **Smart Verification** | On-chain task validation mechanism | ✅ |
 | **Stealth Mode** | Realistic User-Agent rotation & behavior simulation | ✅ |
 | **Multi-Account** | Unlimited multi-account support | ✅ |
-| **Sipal Logging** | Clean, informative, and elegant console logs | ✅ |
 
 ## 🛠 Requirements
 
