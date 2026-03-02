@@ -1,5 +1,4 @@
 # Powerful Automation Bot for the ZugChain Airdrop Ecosystem
-
 An advanced automation bot for the ZugChain Airdrop ecosystem, featuring auto-login, daily check-ins, and verified mission completion.
 
 ---
